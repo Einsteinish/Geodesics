@@ -439,7 +439,7 @@ Geodesics are the shortest paths objects follow in curved spacetime, shaped by g
 
 ## Background
 
-In physics, geodesics generalize straight lines to curved spaces. In Newtonian gravity, they approximate parabolas under constant acceleration, while in Einstein’s general relativity, they reflect spacetime curvature. The geodesic equation,
+In physics, geodesics extend the idea of straight lines to curved spaces. In Newtonian gravity, they look like parabolas because objects fall at a steady rate, while in Einstein’s general relativity, they trace the bends of spacetime. The geodesic equation,
 
 $$
 \frac{d^2x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau} = 0,
