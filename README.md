@@ -541,7 +541,7 @@ $$
 
   where $v$ is the orbital velocity, approximated as $v_\theta$ for a circular orbit.
 - In a circular orbit, $v_\theta = \sqrt{G M / r}$, but the code uses $v_\theta$ directly from the simulation. The energy loss rate relates to the orbital energy $E = -G M m / (2 r)$.
-- The rate of energy loss is $dE/dt = -P$. For a test particle ($m \ll M$), the power scales as:
+- The rate of energy loss is $dE/dt = -P$. For a test particle ($m \ll M$), the power scales as (detailed derivation steps are omitted here):
 
 $$
   P \propto \frac{G^4 M^2 m^2 v^6}{c^5 r^5}.
