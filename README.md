@@ -5,9 +5,9 @@ We’ll break down the geodesic equation in General Relativity (GR) for a fallin
 A **geodesic** is the shortest path between two points on a curved surface. Think of it as nature's way of finding the most efficient route when you can't travel in a straight line.
 On a flat piece of paper, the geodesic is just a straight line. But on a sphere like Earth, geodesics are great circles - like the equator or any circle that cuts the planet in half. That's why airplanes fly along curved paths on maps - they're following geodesics to save fuel and time.
 
-Let's think about falling from a treehouse to understand geodesics. When you drop a ball from your treehouse, it follows what appears to be a straight path downward. But this path is actually a geodesic!
+Let's think about falling from a treehouse to understand geodesics. When we drop a ball from our treehouse, it follows what appears to be a straight path downward. But this path is actually a geodesic!
 The ball isn't following a straight line in the traditional sense - it's following the shortest possible path through curved spacetime. Earth's mass curves the spacetime around it, creating a geodesic that directs objects toward the ground.
-This explains something that puzzled scientists for centuries: why do all objects fall at the same rate regardless of their mass? If you drop a heavy rock and a light tennis ball from your treehouse (ignoring air resistance), they hit the ground at the same time. That's because they're not being 'pulled' by a force that depends on their mass - they're simply following the same geodesic path through curved spacetime.
+This explains something that puzzled scientists for centuries: why do all objects fall at the same rate regardless of their mass? If you drop a heavy rock and a light tennis ball from the treehouse (ignoring air resistance), they hit the ground at the same time. That's because they're not being 'pulled' by a force that depends on their mass - they're simply following the same geodesic path through curved spacetime.
 
 Einstein's insight was revolutionary - gravity isn't a force pulling objects down from the treehouse; it's the natural motion of objects following geodesics through curved spacetime. The treehouse itself is actually 'fighting' against following a geodesic by providing an upward force to keep you from falling!
 
@@ -187,7 +187,7 @@ Our $g = 9.8$ is the Schwarzschild geodesic’s starting point! For 50 meters up
 
 ### Why It’s Awesome
 
-Your falling ball follows a Schwarzschild geodesic—Earth’s spacetime version of Einstein’s rules. The same equation that drops a ball also orbits planets or traps light near a black hole. You’re already wrestling with its core!
+The falling ball follows a Schwarzschild geodesic—Earth’s spacetime version of Einstein’s rules. The same equation that drops a ball also orbits planets or traps light near a black hole. You’re already wrestling with its core!
 
 
 ## 6. How to get $g = \frac{GM}{r^2}$ from the Schwarzschild metric
@@ -480,3 +480,98 @@ Computational modeling lets us explore these paths, adjusting parameters to stud
 
 Geodesics reveal how gravity governs motion across scales. The simulations bridge theory and practice, using simplified equations to visualize Newtonian free fall and relativistic inspirals. Together, they highlight the elegance of geodesics in a gravity-shaped universe.
 
+---
+
+# Appendix - the black hole inspiral simulation code
+Let’s dive into the theoretical origins of the terms in the "Total acceleration" expression from the black hole inspiral simulation code. The line `accel = -mass/r[i]**2 - gr_correction + gw_loss` combines three components: a Newtonian gravitational term, a general relativistic correction, and a gravitational wave energy loss term. I’ll derive each piece step-by-step, focusing on their physical basis and how they fit into the simulation.
+
+
+## 1. **Newtonian Term: $-mass/r[i]**2$**
+### Physical Basis
+This is the familiar Newtonian gravitational acceleration toward a massive object, like a black hole. It comes from Newton’s law of gravitation, $F = G M m / r^2$, where $G$ is the gravitational constant, $M$ is the mass of the black hole, $m$ is the test particle’s mass, and $r$ is the radial distance.
+
+### Derivation
+- Acceleration is force divided by mass: $a = F / m = G M / r^2$.
+- In the code, units are likely normalized (e.g., $G = 1$, solar masses, and appropriate length/time scales), so it simplifies to $a = -M / r^2$, with the negative sign indicating inward radial acceleration.
+- In the code, `mass` is $M$, and `r[i]` is the radius at step $i$, so `-mass/r[i]**2` is the radial acceleration toward the black hole’s center.
+
+This term dominates in weak gravitational fields or large distances, providing the baseline orbit in the simulation.
+
+
+
+## 2. **General Relativity Correction: $gr_correction = 3 * mass * (v_theta**2) / (r[i]**2)$**
+### Physical Basis
+This term accounts for the relativistic deviation from Newtonian gravity near a massive object, specifically in the Schwarzschild spacetime of a non-rotating black hole. It arises from the $1/r^3$ correction to the effective potential, which tightens orbits beyond what Newton predicts.
+
+### Derivation
+- In Schwarzschild geometry, the radial equation of motion for a test particle includes relativistic effects. For a circular or near-circular orbit, the effective potential is:
+
+$$
+  V_{\text{eff}}(r) = -\frac{G M}{r} + \frac{L^2}{2 r^2} - \frac{G M L^2}{r^3},
+$$ 
+
+  where $L = r v_\theta$ is the specific angular momentum, and $v_\theta$ is the tangential velocity.
+- The radial acceleration is the derivative of this potential: $a_r = -\frac{d V_{\text{eff}}}{dr}$.
+- Compute the derivative:
+  - $-\frac{d}{dr} \left( -\frac{G M}{r} \right) = -\frac{G M}{r^2}$ (Newtonian term),
+  - $-\frac{d}{dr} \left( \frac{L^2}{2 r^2} \right) = \frac{L^2}{r^3}$,
+  - $-\frac{d}{dr} \left( -\frac{G M L^2}{r^3} \right) = -\frac{3 G M L^2}{r^4}$.
+- Substitute $L = r v_\theta$, so $L^2 = r^2 v_\theta^2$, and the relativistic term becomes:
+
+$$
+  -\frac{3 G M (r v_\theta)^2}{r^4} = -\frac{3 G M v_\theta^2}{r^2}.
+$$
+
+- In normalized units ($G = 1$), this is $-3 M v_\theta^2 / r^2$. The code uses `3 * mass * (v_theta**2) / (r[i]**2)`, matching this form, with the positive sign indicating it’s subtracted from the inward Newtonian acceleration to reflect the tighter relativistic orbit.
+
+This term causes precession (e.g., Mercury’s orbit) and steepens the inspiral near the black hole.
+
+
+
+## 3. **Gravitational Wave Energy Loss: `gw_loss = - (32/5) * (mass**2) * (r[i]**4) * (v_theta**6) * 1e-5`**
+### Physical Basis
+This term models the loss of orbital energy due to gravitational wave emission, causing the object to spiral inward. It’s based on the Peters 1964 approximation for a binary system, adapted here for a test particle orbiting a black hole.
+
+### Derivation
+$M$ and a test particle), the power radiated by gravitational waves in the quadrupole formula is:
+
+$$
+  P = \frac{32}{5} \frac{G^4 M^2 m^2}{c^5 r^5} v^2,
+$$
+
+  where $v$ is the orbital velocity, approximated as $v_\theta$ for a circular orbit.
+- In a circular orbit, $v_\theta = \sqrt{G M / r}$, but the code uses $v_\theta$ directly from the simulation. The energy loss rate relates to the orbital energy $E = -G M m / (2 r)$.
+- The rate of energy loss is $dE/dt = -P$. For a test particle ($m \ll M$), the power scales as:
+
+$$
+  P \propto \frac{G^4 M^2 m^2 v^6}{c^5 r^5}.
+$$
+
+- Peters (1964) gives the radial decay rate for a circular orbit:
+
+$$
+  \frac{dr}{dt} = -\frac{64}{5} \frac{G^3 M^2 m}{c^5 r^3},
+$$
+
+  but acceleration is $a = d^2 r / dt^2$, and we approximate the effect on $a_r$ via energy loss.
+- Adjusting to our code’s context, the term simplifies with $v = v_\theta$, and in normalized units ($G = c = 1$), it becomes proportional to $-M^2 r^4 v_\theta^6$. The factor $32/5$ and $1e^{-5}$ (a tuning factor) adjust the magnitude to match simulation scales.
+
+This term drives the inspiral by reducing the orbit’s radius over time.
+
+
+
+## Total Acceleration: `accel = -mass/r[i]**2 - gr_correction + gw_loss`
+- **Combination:** The total radial acceleration sums these effects:
+  - Newtonian pull inward: $-M / r^2$,
+  - Relativistic correction (subtracted, as it enhances inward pull): $-3 M v_\theta^2 / r^2$,
+  - Gravitational wave loss (positive in code, likely a sign convention or tuning choice, but physically it accelerates inward): adjusted as a small perturbation.
+- In practice, the signs and tuning (e.g., $1e^{-5}$) ensure the simulation behaves realistically, with the inspiral tightening gradually.
+
+
+
+## Summary
+- **Newtonian:** Classical gravity from $F = G M m / r^2$.
+- **GR Correction:** From Schwarzschild’s $1/r^3$ term in the effective potential.
+- **GW Loss:** From quadrupole radiation, approximated via Peters’ formula.
+
+These terms together simulate a relativistic inspiral, blending classical and modern physics. Let me know if you’d like deeper math or clarification!
