@@ -429,3 +429,57 @@ $$
 
 This set describes the geodesic motion. For a complete solution, initial conditions ($r(0)$, $\dot{r}(0)$, etc.) are needed, but this is the general form near a Schwarzschild black hole.
 
+
+---
+# Exploring Geodesics Through Simulations 
+
+(script)  
+
+Geodesics are the shortest paths objects follow in curved spacetime, shaped by gravity. They are key to understanding motion, from a falling apple to orbits around black holes. Here, we examine geodesics through two simulations: free fall on Earth, Jupiter, and the Sun, and an inspiral around a Schwarzschild black hole. These examples show how geodesics are modeled and applied in physics.
+
+## Background
+
+In physics, geodesics generalize straight lines to curved spaces. In Newtonian gravity, they approximate parabolas under constant acceleration, while in Einstein’s general relativity, they reflect spacetime curvature. The geodesic equation,
+
+$$
+\frac{d^2x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau} = 0,
+$$
+
+describes these paths, where $\Gamma^\mu_{\alpha\beta}$ encodes curvature. Our simulations approximate this: the first uses Newtonian equations, and the second adds relativistic corrections.
+
+## Simulation 1: Free Fall on Earth, Jupiter, and the Sun
+
+The first simulation drops an object from 10 meters above Earth, Jupiter, and the Sun. Using $g = GM/r^2$ —9.8 m/s² for Earth, 24.79 m/s² for Jupiter, and 274 m/s² for the Sun—it calculates height via 
+
+$$
+h = h_0 - \frac{1}{2}gt^2.
+$$
+
+The object hits the surface in:
+- **Earth**: 1.43 seconds
+- **Jupiter**: 0.90 seconds
+- **Sun**: 0.27 seconds
+
+Plotted, these geodesics show steeper curves with stronger gravity, illustrating how mass affects free-fall trajectories.
+
+## Simulation 2: Inspiral Around a Schwarzschild Black Hole
+
+The second simulation models an object spiraling into a black hole 10 times the Sun’s mass. Starting at a radius of 50 units, the code evolves its path with:
+- Newtonian gravity ($-M/r^2$),
+- A relativistic term ($3Mv_\theta^2/r^2$),
+- Gravitational wave energy loss.
+
+The result is a spiral that tightens toward the Schwarzschild radius ($R_s = 2M$), visualized with color gradients. This shows how relativistic geodesics differ from Newtonian ones, capturing spacetime curvature and orbital decay near extreme objects.
+
+## Applications
+
+Geodesics have wide applications:
+- The free-fall simulation relates to planetary motion and spacecraft trajectories.
+- The inspiral connects to gravitational wave detection, like LIGO’s observations of merging black holes.
+
+Computational modeling lets us explore these paths, adjusting parameters to study varied scenarios, such as black holes of different masses.
+
+## Conclusion
+
+Geodesics reveal how gravity governs motion across scales. The simulations bridge theory and practice, using simplified equations to visualize Newtonian free fall and relativistic inspirals. Together, they highlight the elegance of geodesics in a gravity-shaped universe.
+
