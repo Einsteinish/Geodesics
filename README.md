@@ -486,7 +486,7 @@ Geodesics reveal how gravity governs motion across scales. The simulations bridg
 Let’s dive into the theoretical origins of the terms in the "Total acceleration" expression from the black hole inspiral simulation code. The line `accel = -mass/r[i]**2 - gr_correction + gw_loss` combines three components: a Newtonian gravitational term, a general relativistic correction, and a gravitational wave energy loss term. I’ll derive each piece step-by-step, focusing on their physical basis and how they fit into the simulation.
 
 
-## 1. **Newtonian Term: $-mass/r[i]**2$**
+## 1. **Newtonian Term: `-mass/r[i]**2`**
 ### Physical Basis
 This is the familiar Newtonian gravitational acceleration toward a massive object, like a black hole. It comes from Newton’s law of gravitation, $F = G M m / r^2$, where $G$ is the gravitational constant, $M$ is the mass of the black hole, $m$ is the test particle’s mass, and $r$ is the radial distance.
 
@@ -499,7 +499,7 @@ This term dominates in weak gravitational fields or large distances, providing t
 
 
 
-## 2. **General Relativity Correction: $gr_correction = 3 * mass * (v_theta**2) / (r[i]**2)$**
+## 2. **General Relativity Correction: `gr_correction = 3 * mass * (v_theta**2) / (r[i]**2)`**
 ### Physical Basis
 This term accounts for the relativistic deviation from Newtonian gravity near a massive object, specifically in the Schwarzschild spacetime of a non-rotating black hole. It arises from the $1/r^3$ correction to the effective potential, which tightens orbits beyond what Newton predicts.
 
