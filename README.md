@@ -471,9 +471,6 @@ The second simulation models an object spiraling into a black hole 10 times the 
 
 The result is a spiral that tightens toward the Schwarzschild radius ($R_s = 2M$), visualized with color gradients. This shows how relativistic geodesics differ from Newtonian ones, capturing spacetime curvature and orbital decay near extreme objects.
 
-## Applications
-
-Geodesics have wide applications:
 - The free-fall simulation relates to planetary motion and spacecraft trajectories.
 - The inspiral connects to gravitational wave detection, like LIGO’s observations of merging black holes.
 
