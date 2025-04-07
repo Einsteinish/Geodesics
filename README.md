@@ -152,7 +152,7 @@ The geodesic equation is universal—it works everywhere in spacetime. The $\Gam
 #### For a Falling Object
 
 - **Near Earth (Our Case)**: The Schwarzschild metric simplifies because Earth’s gravity is weak. The $\Gamma^3_{00}$ term (for the $z$-direction) approximates $g$, giving us $\frac{d^2z}{dt^2} = -g$. It’s a Schwarzschild geodesic in disguise!
-- **Strong Gravity (e.g., Black Hole)**: The Γ terms get more complex, and the path might curve wildly or spiral in—still a geodesic, but not our simple fall.
+- **Strong Gravity (e.g., Black Hole)**: The $\Gamma$ terms get more complex, and the path might curve wildly or spiral in—still a geodesic, but not our simple fall.
 
 ### Let’s See It in Action
 
