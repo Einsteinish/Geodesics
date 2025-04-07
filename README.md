@@ -325,6 +325,9 @@ $$
 This is the geodesic equation in general relativity, describing the motion of a test particle in curved spacetime, where $x^\mu$ are the coordinates, $\tau$ is the proper time, and $\Gamma^\mu_{\alpha\beta}$ are the Christoffel symbols (connection coefficients) that encode the spacetime geometry. Since you mentioned a black hole, I’ll assume we’re working with the Schwarzschild metric, which describes the spacetime around a non-rotating, uncharged black hole. Let’s proceed step-by-step to derive the geodesic equations in this context.
 
 ### Step 1: Schwarzschild Metric
+
+![spherical-coordiantes.png](images/spherical-coordiantes.png)
+
 The Schwarzschild metric in spherical coordinates $(t, r, \theta, \phi)$ is:
 
 $$
