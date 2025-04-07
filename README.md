@@ -533,7 +533,7 @@ This term causes precession (e.g., Mercury’s orbit) and steepens the inspiral 
 This term models the loss of orbital energy due to gravitational wave emission, causing the object to spiral inward. It’s based on the Peters 1964 approximation for a binary system, adapted here for a test particle orbiting a black hole.
 
 ### Derivation
-$M$ and a test particle), the power radiated by gravitational waves in the quadrupole formula is:
+For a binary system (mass $M$ and a test particle), the power radiated by gravitational waves in the quadrupole formula is:
 
 $$
   P = \frac{32}{5} \frac{G^4 M^2 m^2}{c^5 r^5} v^2,
