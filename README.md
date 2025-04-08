@@ -315,6 +315,11 @@ The Schwarzschild metric’s curvature (via $\Gamma$) gives us gravity. In weak 
 ![black-hole-Inspiral.png](images/black-hole-Inspiral.png)
 To plot the figure, use the following code, [View `black-hole-Inspiral.py`](Python/black-hole-inspiral.py).  
 
+(Note) 
+1. Schwarzschild Radius for a 10 Solar Mass Black Hole
+For a black hole of 10 solar masses ($M = 10M_\odot$), the Schwarzschild radius is approximately **29.5 km** in physical units (since $R_s \approx 2.95\,\text{km} \times M/M_\odot$), but in the simulation’s normalized units, it’s simply **20**.
+
+
 
 Let’s dive into solving for the geodesic of an object near a black hole, starting from the geodesic equation you provided:
 
