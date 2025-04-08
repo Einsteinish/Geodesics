@@ -599,4 +599,8 @@ This term drives the inspiral by reducing the orbit’s radius over time.
 - **GR Correction:** From Schwarzschild’s $1/r^3$ term in the effective potential.
 - **GW Loss:** From quadrupole radiation, approximated via Peters’ formula.
 
-These terms together simulate a relativistic inspiral, blending classical and modern physics. Let me know if you’d like deeper math or clarification!
+---
+
+[Watch the Youtube video here](https://youtu.be/UxKtM3bCSvI)
+
+[![YouTube Video Thumbnail](https://img.youtube.com/vi/UxKtM3bCSvI/0.jpg)](https://www.youtube.com/watch?v=UxKtM3bCSvI)
