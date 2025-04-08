@@ -472,15 +472,15 @@ The second simulation models an object spiraling into a black hole 10 times the 
 - A relativistic term ($3Mv_\theta^2/r^2$),
 - Gravitational wave energy loss.
 
+
+## Conclusion
+
 The result is a spiral that tightens toward the Schwarzschild radius ($R_s = 2M$), visualized with color gradients. This shows how relativistic geodesics differ from Newtonian ones, capturing spacetime curvature and orbital decay near extreme objects.
 
 - The free-fall simulation relates to planetary motion and spacecraft trajectories.
 - The inspiral connects to gravitational wave detection, like LIGO’s observations of merging black holes.
 
 Computational modeling lets us explore these paths, adjusting parameters to study varied scenarios, such as black holes of different masses.
-
-## Conclusion
-
 Geodesics reveal how gravity governs motion across scales. The simulations bridge theory and practice, using simplified equations to visualize Newtonian free fall and relativistic inspirals. Together, they highlight the elegance of geodesics in a gravity-shaped universe.
 
 ---
