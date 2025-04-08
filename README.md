@@ -317,7 +317,7 @@ To plot the figure, use the following code, [View `black-hole-Inspiral.py`](Pyth
 
 ## 1. Note for the Figure 
 
-### Red circle: Schwarzschild Radius
+### Red circle: Event Horizon (Defined by the Schwarzschild Radius)
 1. Schwarzschild Radius for a 10 Solar Mass Black Hole
 For a black hole of 10 solar masses ($M = 10M_\odot$), the Schwarzschild radius is approximately **29.5 km** in physical units (since $R_s \approx 2.95\,\text{km} \times M/M_\odot$), but in the simulation’s normalized units, it’s simply **20**.
 2. The red circle, drawn with the radius `R_s = 2 * mass` in the code, represents the **Schwarzschild radius** of the black hole. The Schwarzschild radius ($R_s = \frac{2GM}{c^2}$) is the radius of the **event horizon** for a non-rotating (Schwarzschild) black hole, where:
