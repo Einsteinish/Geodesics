@@ -315,7 +315,7 @@ The Schwarzschild metric’s curvature (via $\Gamma$) gives us gravity. In weak 
 ![black-hole-Inspiral.png](images/black-hole-Inspiral.png)
 To plot the figure, use the following code, [View `black-hole-Inspiral.py`](Python/black-hole-inspiral.py).  
 
-## Note for the Figure 
+## 1. Note for the Figure 
 
 ### Red circle: Schwarzschild Radius
 1. Schwarzschild Radius for a 10 Solar Mass Black Hole
@@ -337,7 +337,7 @@ In reality, an accretion disk extends over a range of radii, typically starting 
 The choice of **$2R_s$** in the code (`R_s * 2`) is an **artistic or approximate representation**, not the exact ISCO. It suggests the inner edge of where matter might accumulate before plunging in, though a real disk would span from **$3R_s$** outward, depending on the black hole’s properties and the matter’s angular momentum.  
 
 
-## Steps
+## 2. Steps
 Let’s dive into solving for the geodesic of an object near a black hole, starting from the geodesic equation you provided:
 
 $$
