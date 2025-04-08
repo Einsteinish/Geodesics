@@ -315,9 +315,14 @@ The Schwarzschild metric’s curvature (via $\Gamma$) gives us gravity. In weak 
 ![black-hole-Inspiral.png](images/black-hole-Inspiral.png)
 To plot the figure, use the following code, [View `black-hole-Inspiral.py`](Python/black-hole-inspiral.py).  
 
-(Note) 
+(Note for the Figure) 
 1. Schwarzschild Radius for a 10 Solar Mass Black Hole
 For a black hole of 10 solar masses ($M = 10M_\odot$), the Schwarzschild radius is approximately **29.5 km** in physical units (since $R_s \approx 2.95\,\text{km} \times M/M_\odot$), but in the simulation’s normalized units, it’s simply **20**.
+2. The red circle, drawn with the radius `R_s = 2 * mass` in the code, represents the **Schwarzschild radius** of the black hole. The Schwarzschild radius ($R_s = \frac{2GM}{c^2}$) is the radius of the **event horizon** for a non-rotating (Schwarzschild) black hole, where:
+- $G$ is the gravitational constant,  
+- $M$ is the black hole’s mass,  
+- $c$ is the speed of light.
+In the code, units are likely **normalized** (e.g., $G = c = 1$), so $R_s = 2M$, with `mass` being the black hole’s mass in **solar masses** (defaulted to 10).
 
 
 
